@@ -1,0 +1,350 @@
+/* styles.css - Cosmic Elegance Redesign */
+
+/* -------------------- */
+/* Imports & Variables  */
+/* -------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap');
+/* Inter for body, Playfair Display for headings */
+
+:root {
+  /* Cosmic & Elegant Palette (Dark Mode primary) */
+  --galaxy-dark-1: #0f0c29;  /* Deep indigo start */
+  --galaxy-dark-2: #302b63;  /* Mid purple */
+  --galaxy-dark-3: #24243e;  /* Deep blue/purple end */
+
+  --celestial-glow: #4da6ff; /* Bright, ethereal blue */
+  --stardust-white: #e0e6f0; /* Soft off-white */
+  --nebula-pink: #e896e8;    /* Subtle pink accent */
+  --golden-flare: #f7b733;   /* Warm gold accent */
+
+  --bg-glass: rgba(40, 40, 60, 0.6); /* Semi-transparent glass */
+  --bg-surface: #1a1830; /* Slightly lighter dark surface */
+
+  --text-primary: var(--stardust-white);
+  --text-secondary: rgba(224, 230, 240, 0.7); /* Muted white */
+  --text-heading: #ffffff;
+
+  --border-subtle: rgba(224, 230, 240, 0.15);
+  --border-glow: rgba(77, 166, 255, 0.3);
+
+  --code-bg: rgba(232, 150, 232, 0.1); /* Nebula pink background */
+  --code-text: #f0c5f0;
+
+  /* Sizing & Effects */
+  --border-radius-lg: 12px; /* Larger, softer radius */
+  --border-radius-md: 8px;
+  --shadow-ambient: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 15px rgba(77, 166, 255, 0.3); /* Glow effect */
+  --transition-elegant: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+  --backdrop-blur: 10px; /* Blur for glass effect */
+
+  /* Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif; /* Elegant Serif for Headings */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700; /* Playfair needs 700 */
+}
+
+/* Light Mode Override (Less emphasis, but functional) */
+@media (prefers-color-scheme: light) {
+  :root {
+    --galaxy-dark-1: #e0e6f0;
+    --galaxy-dark-2: #ffffff;
+    --galaxy-dark-3: #f0f4f8;
+
+    --celestial-glow: #006fe6;
+    --stardust-white: #333;
+    --nebula-pink: #c76ac7;
+    --golden-flare: #e69500;
+
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    --bg-surface: #ffffff;
+
+    --text-primary: #222;
+    --text-secondary: #555;
+    --text-heading: #000;
+
+    --border-subtle: #d0d8e0;
+    --border-glow: rgba(0, 111, 230, 0.2);
+
+    --code-bg: rgba(199, 106, 199, 0.1);
+    --code-text: #a15aa1;
+
+    --shadow-ambient: 0 8px 25px rgba(0, 0, 0, 0.1);
+    --shadow-focus: 0 0 12px rgba(0, 111, 230, 0.15);
+  }
+}
+
+/* -------------------- */
+/* Reset & Base Styles  */
+/* -------------------- */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px; /* Slightly larger base font */
+  font-weight: var(--font-weight-regular);
+  line-height: 1.8; /* More generous line height */
+  color: var(--text-secondary);
+  background: linear-gradient(160deg, var(--galaxy-dark-1), var(--galaxy-dark-2), var(--galaxy-dark-3));
+  background-attachment: fixed;
+  padding: 40px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* -------------------- */
+/* Header - Celestial Title */
+/* -------------------- */
+
+header {
+  background: transparent; /* Let body gradient show through */
+  padding: 3rem 2rem;
+  margin: 0 auto 4rem auto; /* Center header too */
+  max-width: 900px; /* Consistent width */
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(var(--backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur)); /* Safari */
+  box-shadow: 0 0 0 1px var(--border-subtle), var(--shadow-ambient); /* Subtle border + shadow */
+}
+
+
+header h1 {
+  font-family: var(--font-heading); /* Use serif font */
+  font-size: 3rem; /* Larger heading */
+  font-weight: var(--font-weight-bold);
+  color: var(--text-heading);
+  margin: 0;
+  letter-spacing: 1.5px; /* Wider spacing */
+  text-shadow: 0 0 15px rgba(224, 230, 240, 0.3); /* Soft glow */
+}
+
+/* -------------------- */
+/* Main Content - Refined */
+/* -------------------- */
+
+main {
+  max-width: 700px; /* Slightly narrower focus */
+  margin: 0 auto 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  background: var(--bg-glass);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(var(--backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur));
+  box-shadow: var(--shadow-ambient);
+}
+
+main p {
+  font-size: 1.1rem;
+  color: var(--text-primary); /* Brighter text in main */
+  margin-bottom: 2.5rem; /* More space */
+  font-weight: var(--font-weight-light); /* Lighter weight for paragraph */
+}
+
+/* Button - Glowing Orb */
+#actionButton {
+  display: inline-block;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--border-glow); /* Subtle border */
+  border-radius: 50px;
+  background: radial-gradient(circle, var(--celestial-glow) 0%, var(--primary-main) 100%);
+  color: #3a339b;
+  transition: all var(--transition-elegant);
+  box-shadow: 0 0 20px rgba(77, 166, 255, 0.5), /* Main glow */
+              inset 0 0 5px rgba(255, 255, 255, 0.3); /* Inner highlight */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#actionButton:hover {
+  background: radial-gradient(circle, var(--primary-main) 0%, var(--celestial-glow) 100%);
+  transform: scale(1.05); /* Larger scale on hover */
+  box-shadow: 0 0 30px rgba(77, 166, 255, 0.7),
+              inset 0 0 8px rgba(255, 255, 255, 0.4);
+}
+#actionButton:active {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(77, 166, 255, 0.4),
+                inset 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Members List Styling */
+#membersList {
+  margin-top: 2.5rem;
+  text-align: left; /* Align list items left */
+  padding: 1.5rem;
+  background: rgba(0,0,0, 0.1); /* Slight dark background */
+  border-radius: var(--border-radius-md);
+}
+
+#membersList ul {
+  list-style: none;
+  padding: 0;
+}
+
+#membersList li {
+  color: var(--stardust-white);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-weight: var(--font-weight-light);
+  opacity: 0.8;
+  transition: opacity var(--transition-elegant), padding-left var(--transition-elegant);
+}
+
+#membersList li:last-child {
+  border-bottom: none;
+}
+
+#membersList li:hover {
+    opacity: 1;
+    padding-left: 10px; /* Indent on hover */
+    color: #454699;
+    border-bottom-color: var(--celestial-glow); /* Highlight border on hover */
+}
+
+/* -------------------- */
+/* Instructions Section - Detailed Panel */
+/* -------------------- */
+
+#instructions {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-ambient);
+}
+
+#instructions h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--text-heading);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, var(--nebula-pink), var(--celestial-glow)) 1;
+  font-weight: var(--font-weight-bold);
+  text-align: center; /* Center align H2 */
+}
+
+#instructions h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem; /* Larger H3 */
+  color: var(--golden-flare); /* Gold accent for H3 */
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 8px rgba(247, 183, 51, 0.2); /* Gold glow */
+}
+
+#instructions p {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+#instructions ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#instructions li {
+  margin-bottom: 1.2rem;
+  padding-left: 2.5rem; /* More padding */
+  position: relative;
+  transition: color var(--transition-elegant);
+  color: var(--text-secondary);
+}
+#instructions li:hover {
+    color: var(--text-primary);
+}
+
+/* Custom Bullet Point - Star / Sparkle */
+#instructions li::before {
+  content: '✦'; /* Star/Sparkle symbol */
+  position: absolute;
+  left: 0;
+  top: 2px; /* Adjust vertical alignment */
+  color: var(--nebula-pink); /* Pink accent */
+  font-size: 1.4em;
+  line-height: 1;
+  transition: transform var(--transition-elegant), text-shadow var(--transition-elegant);
+}
+#instructions li:hover::before {
+    transform: rotate(180deg) scale(1.1); /* Rotate and scale on hover */
+    text-shadow: 0 0 8px var(--nebula-pink); /* Add glow */
+}
+
+/* Styling for <code> tags */
+code {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.3em 0.7em;
+  border-radius: 5px;
+  font-family: 'SF Mono', 'Fira Code', monospace; /* Prioritize SF Mono if available */
+  font-size: 0.9em; /* Slightly smaller code */
+  border: 1px solid rgba(232, 150, 232, 0.2);
+  white-space: nowrap; /* Prevent code from wrapping */
+}
+
+/* -------------------- */
+/* Responsive Design    */
+/* -------------------- */
+
+@media (max-width: 992px) {
+  body { padding: 30px; }
+  header h1 { font-size: 2.5rem; }
+  #instructions h2 { font-size: 2rem; }
+  #instructions h3 { font-size: 1.5rem; }
+}
+
+
+@media (max-width: 768px) {
+  body { padding: 20px; font-size: 16px; }
+  header { padding: 2rem 1.5rem; margin-bottom: 3rem; }
+  header h1 { font-size: 2rem; letter-spacing: 1px; }
+  main { padding: 1.5rem; margin-bottom: 3rem; }
+  #actionButton { padding: 14px 35px; font-size: 1rem;}
+  #membersList { padding: 1rem; margin-top: 2rem; }
+  #instructions { padding: 2rem 1.5rem; margin-top: 3rem; }
+  #instructions h2 { font-size: 1.8rem; }
+  #instructions h3 { font-size: 1.4rem; margin-top: 2.5rem; }
+  #instructions li { padding-left: 2rem; }
+}
+
+@media (max-width: 576px) {
+  body { padding: 15px; }
+  header { padding: 1.5rem 1rem; margin-bottom: 2rem; }
+  header h1 { font-size: 1.7rem; letter-spacing: 0.5px;}
+  main { padding: 1rem; }
+  main p { font-size: 1rem; margin-bottom: 1.5rem; }
+  #actionButton { padding: 12px 30px; font-size: 0.95rem; }
+  #membersList { margin-top: 1.5rem; }
+  #membersList li { padding: 0.5rem 0; }
+  #instructions { padding: 1.5rem 1rem; margin-top: 2rem; }
+  #instructions h2 { font-size: 1.5rem; padding-bottom: 0.8rem; }
+  #instructions h3 { font-size: 1.3rem; margin-top: 2rem; }
+  #instructions li { margin-bottom: 1rem; padding-left: 1.8rem; }
+  #instructions li::before { font-size: 1.2em; }
+}
