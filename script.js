@@ -1,16 +1,16 @@
-// Lấy phần tử nút và phần tử hiển thị tên
-const button = document.getElementById('actionButton');
-const membersList = document.getElementById('membersList');
-
-// Mảng chứa tên các thành viên
-const members = ['Nguyễn Hoài An', 'Nguyễn Văn Tổng', 'Kim Thạch Minh Trí'];
-
-// Thêm sự kiện click vào nút
-button.addEventListener('click', () => {
-    // Tạo một danh sách HTML để hiển thị tên thành viên
-    membersList.innerHTML = '<ul>';
+document.getElementById('press-me').addEventListener('click', function() {
+    const members = [
+        { name: 'Nguyễn Hoài An', img: 'images/An.jpg' },
+        { name: 'Nguyễn Thị Thanh Phụng', img: 'images/phung.jpg' },
+        { name: 'Phạm Minh Nhật ', img: 'path/to/member3.jpg' }
+    ];
+    const membersDiv = document.getElementById('members');
+    membersDiv.innerHTML = ''; // Xóa nội dung cũ
     members.forEach(member => {
-        membersList.innerHTML += `<li>${member}</li>`;
+        const img = document.createElement('img');
+        img.src = member.img;
+        img.alt = member.name;
+        img.style.width = '100px'; // Điều chỉnh kích thước ảnh
+        membersDiv.appendChild(img);
     });
-    membersList.innerHTML += '</ul>';
 });
